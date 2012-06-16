@@ -1,0 +1,18 @@
+graphite:
+  type: custom
+  buildscript: builder
+  systempackages:
+    - memcached
+    - libcairo2-dev
+    - libpcre3-dev
+  ports:
+    www: http
+    statsd_udp: udp
+    statsd_tcp: tcp
+    carbon: tcp
+  processes:
+    memcache: memcached -m 128 logfile /var/log/memcached.log
+    statsite: statsite -f ~/statsite/statsite.conf
+    carbon: carbon-cache.py --config=/home/dotcloud/graphite/conf/carbon.conf --debug start
+    uwsgi_graphite: uwsgi --ini ~/graphite/conf/uwsgi.ini
+    nginx: nginx

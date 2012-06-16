@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+config_dir=$HOME/nginx/conf
+config_file=$config_dir/basic_auth.conf
+passwd_file=$config_dir/htpasswd
+
+if [ -e $config_file ] ; then
+  echo "Basic auth already configured, adding another user"
+else
+  echo "No basic auth configured, adding the first user"
+  cat > $config_file << EOF
+auth_basic            "Restricted";
+auth_basic_user_file  htpasswd;
+EOF
+fi
+
+read -p "Username: " username
+read -s -p "Password: " password
+
+echo "$username:$(openssl passwd -1 $password)" >> $passwd_file
+
+echo "User $username added, run this script again to add another"
+
+supervisorctl restart nginx

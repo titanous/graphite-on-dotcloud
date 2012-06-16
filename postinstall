@@ -1,0 +1,17 @@
+#!/bin/sh
+
+sed -i "s/{{CARBON_RECEIVER_PORT}}/$PORT_CARBON/" $HOME/graphite/conf/carbon.conf
+sed -i "s/{{CARBON_RECEIVER_PORT}}/$PORT_CARBON/" $HOME/statsite/statsite.conf
+sed -i "s/{{STATSD_TCP_PORT}}/$PORT_STATSD_TCP/" $HOME/statsite/statsite.conf
+sed -i "s/{{STATSD_UDP_PORT}}/$PORT_STATSD_UDP/" $HOME/statsite/statsite.conf
+sed -i "s/{{WWW_PORT}}/$PORT_WWW/" $HOME/nginx/conf/nginx.conf
+
+echo "*******************************"
+echo "statsite is running at:"
+echo "  $DOTCLOUD_GRAPHITE_STATSD_TCP_URL"
+echo "  $DOTCLOUD_GRAPHITE_STATSD_UDP_URL"
+echo "carbon-cache is running at:"
+echo "  $DOTCLOUD_GRAPHITE_CARBON_URL"
+echo "graphite-web is running at:"
+echo "  $DOTCLOUD_GRAPHITE_HTTP_URL"
+echo "*******************************"
