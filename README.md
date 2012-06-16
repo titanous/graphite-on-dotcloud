@@ -2,7 +2,7 @@
 
 ![FUCK YEAH! Graphite in the Cloud](http://fuckyeahnouns.com/images/graphite%20in%20the%20cloud.jpg)
 
-This is a dotCloud service that installs and configures
+This is a [dotCloud](https://www.dotcloud.com/) service that installs and configures
 [Graphite](https://github.com/graphite-project/graphite-web) along with
 [statsite](https://github.com/armon/statsite) for all your timeseries metrics
 needs. It is by far the fastest and easiest way to get up and running with
@@ -15,7 +15,7 @@ git clone https://github.com/titanous/graphite-on-dotcloud.git
 cd graphite-on-dotcloud
 dotcloud create graphite
 dotcloud push graphite
-# If the build times out, pushing again should work
+# if the build times out, pushing again should work
 
 # create the graphite database
 dotcloud run graphite.graphite python graphite/graphite/manage.py syncdb
@@ -28,7 +28,7 @@ bin/graphite-example.py graphite-foobar.dotcloud.com 1234 1
 
 # relax and play with cute little kittens because you spent five minutes
 # setting up Graphite instead of the entire day
-open http://graphite-foobar.dotcloud.com/
+open https://graphite-foobar.dotcloud.com/
 ```
 
 The configuration is pretty basic/generic, feel free to modify things in `conf`.
