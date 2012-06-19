@@ -4,15 +4,10 @@ config_dir=$HOME/nginx/conf
 config_file=$config_dir/basic_auth.conf
 passwd_file=$config_dir/htpasswd
 
-if [ -e $config_file ] ; then
-  echo "Basic auth already configured, adding another user"
-else
-  echo "No basic auth configured, adding the first user"
-  cat > $config_file << EOF
+cat > $config_file << EOF
 auth_basic            "Restricted";
 auth_basic_user_file  htpasswd;
 EOF
-fi
 
 read -p "Username: " username
 read -s -p "Password: " password
