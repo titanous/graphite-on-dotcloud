@@ -1,7 +1,5 @@
 # Graphite on dotCloud
 
-![FUCK YEAH! Graphite in the Cloud](http://fuckyeahnouns.com/images/graphite%20in%20the%20cloud.jpg)
-
 This is a [dotCloud](https://www.dotcloud.com/) service that installs and configures
 [Graphite](https://github.com/graphite-project/graphite-web) along with
 [statsite](https://github.com/armon/statsite) for all your timeseries metrics
